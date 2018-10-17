@@ -1,14 +1,17 @@
-﻿using System;
+﻿using greenPower.Core.Domain;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace greenPower.Core.Repository
 {
     interface IDataRepository : IRepository
     {
-        bool DataExists(uint address);
-        Data[] GetAllData();
-        Data GetOneData(uint address);
-        void WriteOneData(uint address);
+        Task WriteOneData(uint address);
+        Task<bool> DataExists(uint address);
+        Task<Data[]> GetAllData();
+        Task<Data> GetData();
+        Task<Data> GetOneData(uint address);
     }
 }
